@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 sh 'echo passed'
-                //git branch: 'main', url: 'https://github.com/fatimatabassum1/Jenkins-Zero-To-Hero'
+                //git branch: 'main', url: 'https://github.com/fatimatabassum1/cicd-end-to-end'
             }
         }
 
