@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Push Docker Image') {
             environment {
-                DOCKER_IMAGE = "fatimatassum/ultimate-cicd-new:${BUILD_NUMBER}"
+                DOCKER_IMAGE = "fatimatassum/cicd-new:${BUILD_NUMBER}"
                 REGISTRY_CREDENTIALS = credentials('docker-cred')
             }
             steps {
