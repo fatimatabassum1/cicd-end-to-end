@@ -19,7 +19,7 @@ pipeline {
             steps{
                 script{
                     sh '''
-                    echo 'Buid Docker Image'
+                    echo 'Build Docker Image'
                     docker build -t fatimatabassum/cicd-new:${BUILD_NUMBER} .
                     '''
                 }
