@@ -25,16 +25,19 @@ pipeline {
                 }
             }
         }
-
-        stage('Push the artifacts'){
-           steps{
-                script{
-                    sh '''
-                    echo 'Push to Repo'
-                    docker push fatimatabssum/cicd-new:${BUILD_NUMBER}
-                    '''
+        stage('Push Docker Image') {
+            environment {
+                DOCKER_IMAGE = "fatimatassum/ultimate-cicd-new:${BUILD_NUMBER}"
+                REGISTRY_CREDENTIALS = credentials('docker-cred')
+            }
+            steps {
+                script {
+                    def dockerImage = docker.image("${DOCKER_IMAGE}")
+                    docker.withRegistry('https://index.docker.io/v1/', "docker-cred") {
+                    dockerImage.push()
+                    }
                 }
             }
-        }
+        }   
     }
 }
