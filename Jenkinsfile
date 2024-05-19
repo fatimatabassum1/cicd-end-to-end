@@ -39,10 +39,5 @@ pipeline {
                 }
             }
         }
-        stage('Deploy the container'){
-            steps{
-                sh 'docker run -d -p 8080:8080 fatimatabassum/jenkins-java-docker'
-            }
-        }
     }
 }
